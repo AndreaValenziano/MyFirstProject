@@ -14,7 +14,7 @@ import android.widget.TextView;
  */
 
 public class ContactActivity extends Activity implements View.OnClickListener {
-    Button goBtn, callBtn;
+    Button goBtn, callBtn, sendEmailBtn;
     TextView name, date, cel, email, pos;
 
     @Override
@@ -23,6 +23,8 @@ public class ContactActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_contact);
         goBtn = (Button) findViewById(R.id.go_btn);
         callBtn = (Button) findViewById(R.id.call_btn);
+        sendEmailBtn=(Button) findViewById(R.id.send_email_btn);
+
         name = (TextView) findViewById(R.id.name);
         date = (TextView) findViewById(R.id.date);
         cel = (TextView) findViewById(R.id.tel);
@@ -31,6 +33,9 @@ public class ContactActivity extends Activity implements View.OnClickListener {
 
         goBtn.setOnClickListener(this);
         callBtn.setOnClickListener(this);
+        sendEmailBtn.setOnClickListener(this);
+
+
 
     }
 
@@ -42,12 +47,19 @@ public class ContactActivity extends Activity implements View.OnClickListener {
             Uri uri=Uri.parse("geo:0,0?q="+pos.getText().toString());
             intent.setData(uri);
             startActivity(intent);
-        } else if (v.getId() == callBtn.getId()) {
+        } else if (v.getId() == R.id.call_btn) {
             Intent intent=new Intent();
             intent.setAction(Intent.ACTION_VIEW);
             Uri uri=Uri.parse("tel:"+cel.getText().toString());
             intent.setData(uri);
             startActivity(intent);
+
+        }else if(v.getId()== R.id.send_email_btn){
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/html");
+            intent.putExtra(Intent.EXTRA_EMAIL,email.getText().toString());
+            startActivity(Intent.createChooser(intent, "@string/send_email"));
+
 
         }
 

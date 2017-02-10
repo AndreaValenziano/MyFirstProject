@@ -17,4 +17,6 @@
     <string name="data_nas">13-11-1997</string>
     <string name="call">Call</string>
     <string name="go">Go</string>
+    <string name="send_email">Send Email</string>
+
 </resources>

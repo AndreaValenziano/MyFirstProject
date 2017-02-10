@@ -1,113 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/colorPrimaryLight"
-    android:layout_margin="@dimen/margin_layout"
-    android:padding="@dimen/padding_layout">
-    <TextView
-        android:textStyle="bold"
-        android:id="@+id/name"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/andrea"
-        android:textSize="@dimen/title"
-        android:layout_margin="@dimen/margin_layout"/>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/corso"
-            android:text="@string/corso"
-            android:textSize="@dimen/subtitle"
-            android:layout_margin="@dimen/margin_layout"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/date_nas"
-            android:text="@string/data_nas"
-            android:textSize="@dimen/subtitle"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="@dimen/margin_layout"
-            />
-
-
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textSize="@dimen/content"
-        android:id="@+id/email"
         android:layout_margin="@dimen/margin_layout"
-        />
+        android:background="@color/colorPrimaryLight"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_layout">
 
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tel"
-            android:textSize="@dimen/content"
-            android:id="@+id/tel"
             android:layout_margin="@dimen/margin_layout"
-            />
+            android:text="@string/andrea"
+            android:textSize="@dimen/title"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:id="@+id/corso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:text="@string/corso"
+                android:textSize="@dimen/subtitle" />
+
+            <TextView
+                android:id="@+id/date_nas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/margin_layout"
+                android:text="@string/data_nas"
+                android:textSize="@dimen/subtitle" />
+
+
+        </RelativeLayout>
+
         <TextView
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/position"
-            android:textSize="@dimen/content"
-            android:id="@+id/pos"
             android:layout_margin="@dimen/margin_layout"
-            />
-    </LinearLayout>
+            android:text="@string/email"
+            android:textSize="@dimen/content" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="end">
-        <Button
+
+        <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:text="@string/tel"
+                android:textSize="@dimen/content" />
+
+            <TextView
+                android:id="@+id/pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:text="@string/position"
+                android:textSize="@dimen/content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/go"
-            android:textColor="@color/colorPrimaryDark"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:gravity="end">
 
-            android:id="@+id/go_btn"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/call"
-            android:textColor="@color/colorPrimaryDark"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            <Button
+                android:id="@+id/go_btn"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/go"
 
-            android:id="@+id/call_btn"/>
+                android:textColor="@color/colorPrimaryText"
 
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/call_btn"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/call"
+
+                android:textColor="@color/colorPrimaryText"
+
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/send_email_btn"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/send_email"
+                android:textColor="@color/colorPrimaryText"
+
+                android:textStyle="bold" />
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
-
-
-
-
-
-
-
-
-
 
 
 </LinearLayout>
