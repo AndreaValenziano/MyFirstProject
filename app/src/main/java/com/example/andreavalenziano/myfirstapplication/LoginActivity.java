@@ -2,6 +2,7 @@ package com.example.andreavalenziano.myfirstapplication;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         loginBtn.setOnClickListener(this);
 
 
+
+
     }
 
     @Override
@@ -39,6 +42,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         String password = passwordET.getText().toString();
         if (doLogin(username, password)) {
             Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 
 
