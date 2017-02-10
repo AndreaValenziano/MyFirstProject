@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
+    >
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    >
+
+
+    <RelativeLayout
+        android:layout_margin="@dimen/margin_layout"
+    android:background="@color/colorPrimaryLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_margin="@dimen/margin_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title"
+            android:textColor="@color/colorPrimaryText"
+            android:text="@string/hello_world"
+            android:layout_alignParentStart="true"
+            android:id="@+id/title2"
+            />
+
+            <TextView
+                android:textColor="@color/colorSecondaryText"
+                android:id="@+id/subtitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:layout_below="@+id/title2"
+                android:layout_toStartOf="@+id/date2"
+
+
+                />
+
+        <TextView
+            android:layout_margin="@dimen/margin_layout"
+            android:id="@+id/articolo2"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            android:layout_below="@+id/subtitle2"
+            />
+        <Button
+            android:id="@+id/submit2"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:text="@string/submit"
+            android:layout_below="@+id/articolo2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/date2"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:layout_alignBaseline="@+id/subtitle2"
+            android:layout_alignBottom="@+id/subtitle2"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_margin="@dimen/margin_layout"
+        android:background="@color/colorPrimaryLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_margin="@dimen/margin_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title"
+            android:textColor="@color/colorPrimaryText"
+            android:text="@string/hello_world"
+            android:layout_alignParentStart="true"
+            android:id="@+id/title3"
+            />
+
+        <TextView
+            android:textColor="@color/colorSecondaryText"
+            android:id="@+id/subtitle3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_below="@+id/title3"
+            android:layout_toStartOf="@+id/date3"
+
+
+            />
+
+        <TextView
+            android:layout_margin="@dimen/margin_layout"
+            android:id="@+id/articolo3"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            android:layout_below="@+id/subtitle3"
+            />
+        <Button
+            android:id="@+id/submit3"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:text="@string/submit"
+            android:layout_below="@+id/articolo3"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/date3"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:layout_alignBaseline="@+id/subtitle3"
+            android:layout_alignBottom="@+id/subtitle3"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_margin="@dimen/margin_layout"
+        android:background="@color/colorPrimaryLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_margin="@dimen/margin_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title"
+            android:textColor="@color/colorPrimaryText"
+            android:text="@string/hello_world"
+            android:layout_alignParentStart="true"
+            android:id="@+id/title"
+            />
+
+        <TextView
+            android:textColor="@color/colorSecondaryText"
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_below="@+id/title"
+            android:layout_toStartOf="@+id/date"
+
+
+            />
+
+        <TextView
+            android:layout_margin="@dimen/margin_layout"
+            android:id="@+id/articolo"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            android:layout_below="@+id/subtitle"
+            />
+        <Button
+            android:id="@+id/submit"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:text="@string/submit"
+            android:layout_below="@+id/articolo"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:layout_alignBaseline="@+id/subtitle"
+            android:layout_alignBottom="@+id/subtitle"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>

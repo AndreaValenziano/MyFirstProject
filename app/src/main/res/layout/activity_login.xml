@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/account"
+        android:layout_alignParentTop="true"
+        android:hint="@string/account"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:id="@+id/password"
+        android:layout_below="@+id/account"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textSize="@dimen/title"
+        android:id="@+id/login"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryLight"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>
+
+
