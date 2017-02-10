@@ -9,4 +9,12 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="login_success">Logged in successfully</string>
+    <string name="andrea">Andrea Valenziano</string>
+    <string name="tel">3485916588</string>
+    <string name="position">Via Sandro Sandri, 81</string>
+    <string name="email">valenzianoa@gmail.com</string>
+    <string name="corso">LTM</string>
+    <string name="data_nas">13-11-1997</string>
+    <string name="call">Call</string>
+    <string name="go">Go</string>
 </resources>

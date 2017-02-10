@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="title">35dp</dimen>
+    <dimen name="padding_layout">20dp</dimen>
     <dimen name="margin_layout">10dp</dimen>
-
+    <dimen name="subtitle">25dp</dimen>
+    <dimen name="content">17dp</dimen>
 </resources>

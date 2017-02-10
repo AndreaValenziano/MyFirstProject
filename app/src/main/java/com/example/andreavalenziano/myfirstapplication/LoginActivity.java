@@ -1,7 +1,6 @@
 package com.example.andreavalenziano.myfirstapplication;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +41,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         String password = passwordET.getText().toString();
         if (doLogin(username, password)) {
             Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_LONG).show();
-            Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent=new Intent(LoginActivity.this, ContactActivity.class);
             startActivity(intent);
             finish();
         }
@@ -51,7 +50,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     }
 
     private boolean doLogin(String username, String password) {
-        //check username e password
+        //do something
         return true;
     }
 }
