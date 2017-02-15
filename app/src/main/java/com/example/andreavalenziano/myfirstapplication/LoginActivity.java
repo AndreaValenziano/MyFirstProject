@@ -16,6 +16,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     EditText usernameET;
     EditText passwordET;
     Button loginBtn;
+    public static final String EMAIL_KEY="email";
 
 
     @Override
@@ -42,6 +43,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         if (doLogin(username, password)) {
             Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_LONG).show();
             Intent intent=new Intent(LoginActivity.this, ContactActivity.class);
+            intent.putExtra(EMAIL_KEY,username);
             startActivity(intent);
             finish();
         }

@@ -16,11 +16,15 @@ import android.widget.TextView;
 public class ContactActivity extends Activity implements View.OnClickListener {
     Button goBtn, callBtn, sendEmailBtn;
     TextView name, date, cel, email, pos;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+
+        i=getIntent();
+
         goBtn = (Button) findViewById(R.id.go_btn);
         callBtn = (Button) findViewById(R.id.call_btn);
         sendEmailBtn=(Button) findViewById(R.id.send_email_btn);
@@ -30,6 +34,7 @@ public class ContactActivity extends Activity implements View.OnClickListener {
         cel = (TextView) findViewById(R.id.tel);
         email = (TextView) findViewById(R.id.email);
         pos = (TextView) findViewById(R.id.pos);
+        email.setText(i.getStringExtra(LoginActivity.EMAIL_KEY));
 
         goBtn.setOnClickListener(this);
         callBtn.setOnClickListener(this);
