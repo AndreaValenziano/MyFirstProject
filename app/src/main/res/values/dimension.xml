@@ -5,4 +5,6 @@
     <dimen name="margin_layout">10dp</dimen>
     <dimen name="subtitle">25dp</dimen>
     <dimen name="content">17dp</dimen>
+    <dimen name="card_height">250dp</dimen>
+
 </resources>

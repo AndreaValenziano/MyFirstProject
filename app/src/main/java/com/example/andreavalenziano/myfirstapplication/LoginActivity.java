@@ -45,7 +45,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             Intent intent=new Intent(LoginActivity.this, ContactActivity.class);
             intent.putExtra(EMAIL_KEY,username);
             startActivity(intent);
-            finish();
+            
         }
 
 

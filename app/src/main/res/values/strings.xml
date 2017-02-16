@@ -18,5 +18,13 @@
     <string name="call">Call</string>
     <string name="go">Go</string>
     <string name="send_email">Send Email</string>
+    <string name="info">info</string>
+    <string name="student_name">Nome e cognome</string>
+    <string name="mail_hint">email</string>
+    <string name="phone">Phone number</string>
+    <string name="student">Student</string>
+    <string name="insert_student_name">Inserisci il nome</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
