@@ -7,8 +7,10 @@ package com.example.andreavalenziano.myfirstapplication;
 public class BusinessCard {
 
     String name, email, phoneNumber,course,address;
+    static int id=0;
 
     public BusinessCard(String name,String email, String phoneNumber,String course,String address){
+        id++;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -36,6 +38,10 @@ public class BusinessCard {
         return address;
     }
 
+    public int getId(){return id;}
 
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }

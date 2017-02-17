@@ -30,7 +30,7 @@ import static android.content.ContentValues.TAG;
 public class ContactActivity extends Activity implements View.OnClickListener {
     Button goBtn, callBtn, sendEmailBtn;
     TextView name, date, cel, pos;
-    String email="";
+    String email = "";
     Intent intent;
     //rv items
     private RecyclerView businessCardsRV;
@@ -41,6 +41,8 @@ public class ContactActivity extends Activity implements View.OnClickListener {
     // constants
     private static final String ELIS_ADDRESS = "via Sandro Sandri 71";
     private static final String LTM_COURSE = "LTM 11";
+    static final String USER_NAME = "user";
+    static final String ID="id";
 
 
     @Override
@@ -49,33 +51,30 @@ public class ContactActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_contact);
 
 
-
-
-        intent =getIntent();
+        intent = getIntent();
 
         goBtn = (Button) findViewById(R.id.go_btn);
         callBtn = (Button) findViewById(R.id.call_btn);
-        sendEmailBtn=(Button) findViewById(R.id.send_email_btn);
+        sendEmailBtn = (Button) findViewById(R.id.send_email_btn);
 
         name = (TextView) findViewById(R.id.name);
         date = (TextView) findViewById(R.id.date);
         cel = (TextView) findViewById(R.id.tel);
 
         pos = (TextView) findViewById(R.id.pos);
-        if(intent.getStringExtra(LoginActivity.EMAIL_KEY)!=null){
-            email=intent.getStringExtra(LoginActivity.EMAIL_KEY);
-        }
-        else {
-            String action=intent.getAction();
-            if(intent.ACTION_SEND.equals(action)){
-                email=intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (intent.getStringExtra(LoginActivity.EMAIL_KEY) != null) {
+            email = intent.getStringExtra(LoginActivity.EMAIL_KEY);
+        } else {
+            String action = intent.getAction();
+            if (intent.ACTION_SEND.equals(action)) {
+                email = intent.getStringExtra(Intent.EXTRA_TEXT);
             }
         }
 
         businessCardsRV = (RecyclerView) findViewById(R.id.business_cards_rv);
         layout = (RelativeLayout) findViewById(R.id.main_layout);
-        adapter=new BusinessCardAdapter();
-        layoutManager=new LinearLayoutManager(this);
+        adapter = new BusinessCardAdapter();
+        layoutManager = new LinearLayoutManager(this);
         businessCardsRV.setAdapter(adapter);
 
         businessCardsRV.setLayoutManager(layoutManager);
@@ -90,14 +89,9 @@ public class ContactActivity extends Activity implements View.OnClickListener {
         });
 
 
-
-
-
-
-    //goBtn.setOnClickListener(this);
-      //  callBtn.setOnClickListener(this);
-        //andreasendEmailBtn.setOnClickListener(this);
-
+//        goBtn.setOnClickListener(this);
+//        callBtn.setOnClickListener(this);
+//        sendEmailBtn.setOnClickListener(this);
 
 
     }
@@ -119,7 +113,7 @@ public class ContactActivity extends Activity implements View.OnClickListener {
                 //do something with edt.getText().toString();
 
                 BusinessCard businessCard = new BusinessCard(studentName.getText().toString(),
-                        studentEmail.getText().toString(),studentPhone.getText().toString(),LTM_COURSE,ELIS_ADDRESS);
+                        studentEmail.getText().toString(), studentPhone.getText().toString(), LTM_COURSE, ELIS_ADDRESS);
                 adapter.addBusinessCard(businessCard);
                 businessCardsRV.scrollToPosition(0);
 
@@ -154,26 +148,42 @@ public class ContactActivity extends Activity implements View.OnClickListener {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        System.out.println(data.getStringExtra(USER_NAME));
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+               String newName= data.getStringExtra(USER_NAME);
+                int id=Integer.parseInt(data.getStringExtra(ID));
+                adapter.changeName(newName,id);
+
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.go_btn) {
-            Intent intent=new Intent();
+            Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            Uri uri=Uri.parse("geo:0,0?q="+pos.getText().toString());
+            Uri uri = Uri.parse("geo:0,0?q=" + pos.getText().toString());
             intent.setData(uri);
             startActivity(intent);
         } else if (v.getId() == R.id.call_btn) {
-            Intent intent=new Intent();
+            Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            Uri uri=Uri.parse("tel:"+cel.getText().toString());
+            Uri uri = Uri.parse("tel:" + cel.getText().toString());
             intent.setData(uri);
             startActivity(intent);
 
-        }else if(v.getId()== R.id.send_email_btn){
+        } else if (v.getId() == R.id.send_email_btn) {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/html");
-            intent.putExtra(Intent.EXTRA_EMAIL,email);
+            intent.putExtra(Intent.EXTRA_EMAIL, email);
+
             startActivity(Intent.createChooser(intent, "@string/send_email"));
 
 
@@ -183,15 +193,14 @@ public class ContactActivity extends Activity implements View.OnClickListener {
 
     public static void showSnackBar(String name) {
 
-        Snackbar.make(layout,name, Snackbar.LENGTH_SHORT)
+        Snackbar.make(layout, name, Snackbar.LENGTH_SHORT)
                 .setAction("OK", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    @Override
+                    public void onClick(View view) {
 
-            }
-        }).show();
+                    }
+                }).show();
     }
-
 
 
     @Override

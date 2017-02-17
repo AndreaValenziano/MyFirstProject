@@ -1,5 +1,8 @@
 package com.example.andreavalenziano.myfirstapplication;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +19,14 @@ import java.util.ArrayList;
 
 public class BusinessCardAdapter extends RecyclerView.Adapter<BusinessCardAdapter.BusinessCardVH> {
 
+
+    private static BusinessCardAdapter instance=new BusinessCardAdapter();
     private ArrayList<BusinessCard> dataSet = new ArrayList<>();
+
+    public static BusinessCardAdapter getInstance(){
+        return instance;
+    }
+
 
     public void addBusinessCard(BusinessCard bc){
 
@@ -26,6 +36,16 @@ public class BusinessCardAdapter extends RecyclerView.Adapter<BusinessCardAdapte
 
     public void setDataSet (ArrayList<BusinessCard> dataSet) {
         this.dataSet = dataSet;
+        notifyDataSetChanged();
+    }
+
+    public void changeBusinessCard(BusinessCard bc){
+        dataSet.set(bc.getId()-1,bc);
+        notifyDataSetChanged();
+    }
+
+    public void changeName(String name, int id){
+        dataSet.get(id).setName(name);
         notifyDataSetChanged();
     }
 
@@ -53,9 +73,12 @@ public class BusinessCardAdapter extends RecyclerView.Adapter<BusinessCardAdapte
     }
 
 
+
+
+
     public class BusinessCardVH extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView nameTv, phoneNumberTv,emailTv, courseTv, addressTv;
-        Button infoBtn;
+        Button goBtn, callBtn, sendEmailBtn, infoBtn;
 
         public BusinessCardVH(View itemView) {
             super(itemView);
@@ -65,14 +88,53 @@ public class BusinessCardAdapter extends RecyclerView.Adapter<BusinessCardAdapte
             courseTv = (TextView)itemView.findViewById(R.id.corso);
             addressTv = (TextView)itemView.findViewById(R.id.pos);
             infoBtn = (Button) itemView.findViewById(R.id.info_btn);
+            goBtn = (Button) itemView.findViewById(R.id.go_btn);
+            callBtn = (Button) itemView.findViewById(R.id.call_btn);
+            sendEmailBtn = (Button) itemView.findViewById(R.id.send_email_btn);
             infoBtn.setOnClickListener(this);
+            goBtn.setOnClickListener(this);
+            callBtn.setOnClickListener(this);
+            sendEmailBtn.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View view) {
-            ContactActivity.showSnackBar(dataSet.get(getAdapterPosition()).getName());
+            System.out.println(view.getId());
+            if (view.getId() == R.id.go_btn) {
+                System.out.println("go");
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                Uri uri = Uri.parse("geo:0,0?q=" + dataSet.get(getAdapterPosition()).getAddress());
+                intent.setData(uri);
+                view.getContext().startActivity(intent);
+            } else if (view.getId() == R.id.call_btn) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                Uri uri = Uri.parse("tel:" + dataSet.get(getAdapterPosition()).getPhoneNumber());
+                intent.setData(uri);
+                view.getContext().startActivity(intent);
+
+            } else if (view.getId() == R.id.send_email_btn) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/html");
+                intent.putExtra(Intent.EXTRA_EMAIL, dataSet.get(getAdapterPosition()).getEmail());
+                view.getContext().startActivity(Intent.createChooser(intent, "@string/send_email"));
+
+
+            }else if(view.getId()==R.id.info_btn){
+                Intent intent=new Intent(view.getContext(),InfoActivity.class);
+                System.out.println("info");
+                ContactActivity.showSnackBar(dataSet.get(getAdapterPosition()).getName());
+                intent.putExtra(ContactActivity.USER_NAME,nameTv.getText());
+                intent.putExtra(ContactActivity.ID,String.valueOf(getAdapterPosition()));
+                ContactActivity context=(ContactActivity) view.getContext();
+                context.startActivityForResult(intent,1);
+            }
 
         }
+
+
     }
+
 }
